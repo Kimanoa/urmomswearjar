@@ -71,6 +71,7 @@ footer {
   border-radius: 12px;
   background-color: rgb(150, 141, 94);
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 .button:hover {

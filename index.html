@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>"ur mom" swear jar</title>
+        <link rel="icon" type="image/x-icon" href="images\coin.png">
+        <meta name="description" content>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+    <body>
+        <header></header>
+
+        <content>
+            <div class="header">
+                <h1 class="headtitle">"ur mom"<br> swear jar</h1>
+                <h3 class="problem">Are you done with hearing your friend reply
+                    with "ur mom" to literally anything?<br>
+                    Then you found the right place to get back at them.</h3>
+                <h3>Every 50 coins, your friend has to buy you a boba. <img
+                        src="images\bubble-tea.png" alt="boba"></h3>
+            </div>
+
+            <div class="coins">
+                <button class="button button1" onClick="clickCounter()">Add a
+                    coin</button><br><i class="fa fa-refresh" aria-hidden="true" onClick="resetCounter()"></i>
+                <p>Current amount of coins: <a id="result"></a><img
+                        src="images\coin.png" alt="coin"></p>
+            </div>
+        </content>
+
+        <footer>Made with love by Kima ♥</footer>
+    </body>
+
+    <script language=JavaScript>
+        //Disable inspect
+        document.addEventListener('contextmenu', event=> event.preventDefault()); 
+        document.onkeydown = function(e) { 
+        if(event.keyCode == 123) { 
+        return false; 
+        } 
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){ 
+        return false; 
+        } 
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){ 
+        return false; 
+        } 
+        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){ 
+        return false; 
+        } 
+        }
+
+        //local storage of data
+        function clickCounter() {
+            //create storage
+            if (typeof(Storage) !== "undefined") {
+            //add clicks to counter
+            if (localStorage.clickcount) {
+                localStorage.clickcount = Number(localStorage.clickcount)+1; 
+            } else {
+                localStorage.clickcount = 0;
+            }
+            //current clicks
+            document.getElementById("result").innerHTML = localStorage.clickcount;
+            }
+
+            if (localStorage.clickcount == 50){
+                    alert ("You need to buy a boba!");
+                    localStorage.clickcount = 0;
+                }
+        }
+
+        function resetCounter(){
+            localStorage.clickcount = 0;
+            document.getElementById("result").innerHTML = localStorage.clickcount;
+        }
+            
+        //add clicks to counter
+        /*var clicks = 0;
+
+        function onClick() {
+        clicks += 1;
+        document.getElementById("clicks").innerHTML = clicks;
+        };*/
+    </script>
+</html>
